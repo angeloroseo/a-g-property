@@ -9,7 +9,7 @@ const locations = [
     img3: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/6727ce41-cd53-4f4e-b90b-1ae02092cf32.jpeg?im_w=720",
     img4: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/984f6a2c-e469-4280-8e5f-cfd443461d34.jpeg?im_w=720",
     img5: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/643cbfe7-de8e-4b76-9760-c86f869878c2.jpeg?im_w=720",
-    precio: "$1,922 MXN noche",
+    precio: "da $300 EUR notte",
     calificacion: 5.0,
     desc: "Nuxco, México, es un destino que te ofrece una combinación única de naturaleza, cultura y aventura. Ubicado a 944 km de distancia, este lugar te sorprenderá con su belleza natural y su rica historia. Disfruta de la tranquilidad de sus playas, explora sus paisajes impresionantes y sumérgete en la cultura local. Con una calificación de 5.0, este alojamiento te garantiza una experiencia inolvidable. ¡Ven y descubre todo lo que Nuxco tiene para ofrecerte!",
     dato1: {
@@ -31,7 +31,8 @@ const locations = [
     anfitrion: "Gabriela Martinez",
     experiencia: "Superanfitrión",
     tiempo : 11,
-    evaluaciones: 221,    
+    evaluaciones: 100
+    ,    
     hostimg: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
     filtro: "playa"
   },
