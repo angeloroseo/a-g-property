@@ -5,7 +5,7 @@ const locations = [
     distancia: "2 km dal centro",
     fecha: "16-21 de mar.",
     img: "https://www.gargiuloresort.com/_image?f=webp&w=700&h=600&fit=outside&p=center&href=https%3A%2F%2Fcms.gargiuloresort.com%2Fassets%2Fimages%2Fpublic%2Fitems%2Fbig%2Fgargiulo-resort-sorrento-coast-5_u8_t1691157103.jpg",
-    img2: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/7f6eb476-a771-4244-8456-373250d99550.jpeg?im_w=720",
+    img2: "https://www.gargiuloresort.com/_image?f=webp&w=700&h=600&fit=outside&p=center&href=https%3A%2F%2Fcms.gargiuloresort.com%2Fassets%2Fimages%2Fpublic%2Fitems%2Fbig%2Fami0500jpeg_u9_t1692105845.jpg",
     img3: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/6727ce41-cd53-4f4e-b90b-1ae02092cf32.jpeg?im_w=720",
     img4: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/984f6a2c-e469-4280-8e5f-cfd443461d34.jpeg?im_w=720",
     img5: "https://a0.muscache.com/im/pictures/miso/Hosting-897853297907579574/original/643cbfe7-de8e-4b76-9760-c86f869878c2.jpeg?im_w=720",
