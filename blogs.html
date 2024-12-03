@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stybnb</title>
+    <title>AGL Appartamenti</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/4b36c17d8c.js" crossorigin="anonymous"></script>
 </head>
@@ -12,185 +12,220 @@
         <nav id="navBar">
             <img src="images/logo.png" class="logo">
             <ul class="nav-links">
-                <li><a href="#" class="active">Popular Places</a></li>
-                <li><a href="#">Travel Outside</a></li>
-                <li><a href="#">Online Packages</a></li>
+                <li><a href="#" class="active">Luoghi Popolari</a></li>
+                <li><a href="#">Viaggi all'Estero</a></li>
+                <li><a href="#">Pacchetti Online</a></li>
             </ul>
-            <a href="#" class="register-btn">Register Now</a>
             <i class="fa-solid fa-bars" onclick="togglebtn()"></i>
         </nav>
         <div class="container">
-            <h1>Find Your Next Stay</h1>
-            <div class="search-bar">
-                <form>
-                    <div class="location-input">
-                        <label>Location</label>
-                        <input type="text" placeholder="Where are you going?">
-                    </div>
-                    <div>
-                        <label>Check in</label>
-                        <input type="text" placeholder="Add Date">
-                    </div>
-                    <div>
-                        <label>Check out</label>
-                        <input type="text" placeholder="Add Date">
-                    </div>
-                    <div>
-                        <label>Guest</label>
-                        <input type="text" placeholder="Add Guest">
-                    </div>
-                    <button type="submit"><img src="images/search.png"> </button>
-                </form>
+            <!-- Include Flatpickr CSS e JS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+            <div class="container">
+                <h1>Trova il tuo appartamento</h1>
+                <div class="search-bar">
+                    <form id="searchForm">
+                        <div class="location-input">
+                            <label for="location">Località</label>
+                            <input type="text" id="location" name="location" placeholder="Dove vuoi andare?" required>
+                        </div>
+                        <div>
+                            <label for="check-in">Check-in</label>
+                            <input type="text" id="check-in" name="check_in" placeholder="Seleziona data" required readonly>
+                        </div>
+                        <div>
+                            <label for="check-out">Check-out</label>
+                            <input type="text" id="check-out" name="check_out" placeholder="Seleziona data" required readonly>
+                        </div>
+                        <div>
+                            <label for="guest">Ospiti</label>
+                            <input type="number" id="guest" name="guest" placeholder="Numero di ospiti" min="1" required>
+                        </div>
+                        <button type="button" id="whatsappButton">
+                            <img src="images/search.png" alt="Cerca">
+                        </button>
+                    </form>
+                </div>
             </div>
+
+            <script>
+                // Configura il calendario Flatpickr per Check-in e Check-out
+                flatpickr("#check-in", {
+                    altInput: true,
+                    altFormat: "d/m/Y",
+                    dateFormat: "Y-m-d",
+                    minDate: "today", // Inizio dal giorno corrente
+                    onChange: function (selectedDates, dateStr) {
+                        // Imposta la data minima di Check-out dopo il Check-in
+                        document.getElementById("check-out")._flatpickr.set("minDate", dateStr);
+                    }
+                });
+
+                flatpickr("#check-out", {
+                    altInput: true,
+                    altFormat: "d/m/Y",
+                    dateFormat: "Y-m-d",
+                    minDate: "today" // Imposta una data minima iniziale
+                });
+
+                // Funzione per inviare il messaggio WhatsApp
+                document.getElementById("whatsappButton").addEventListener("click", function () {
+                    const location = document.getElementById("location").value;
+                    const checkIn = document.getElementById("check-in").value;
+                    const checkOut = document.getElementById("check-out").value;
+                    const guest = document.getElementById("guest").value;
+
+                    if (!location || !checkIn || !checkOut || !guest) {
+                        alert("Compila tutti i campi prima di inviare.");
+                        return;
+                    }
+
+                    const message = `Ciao, sto cercando un appartamento per:
+- Località: ${location}
+- Check-in: ${checkIn}
+- Check-out: ${checkOut}
+- Numero di ospiti: ${guest}`;
+
+                    const whatsappUrl = `https://wa.me/+393500313314/?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, "_blank");
+                });
+            </script>
         </div>
     </div>
 <div class="container">
-    <h2 class="sub-title">Exclusives</h2>
+    <h2 class="sub-title">Esclusive</h2>
     <div class="exclusives">
         <div>
-            <img src="images/image-1.png">
+            <div>
+                <a href="listing pompei.html">
+                    <img src="images/pompei foto.jpg" alt="Pompei">
+                </a>
+                <span>
+                    <h3>POMPEI</h3>
+                    <p>€50</p>
+                </span>
+            </div>
+            
+        </div>
+        <div>
+            <img src="images/sorrento.jpg">
             <span>
-                <h3>London</h3>
-                <p> $250</p>
+                <h3>SORRENTO</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-2.png">
+            <img src="images/amalfi.jpg">
             <span>
-                <h3>Switzerland</h3>
-                <p> $250</p>
+                <h3>AMALFI</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-3.png">
+            <img src="images/capri.jpg">
             <span>
-                <h3>Australia</h3>
-                <p> $250</p>
+                <h3>CAPRI</h3>
+                <p> €400</p>
             </span>
         </div>
         <div>
-            <img src="images/image-4.png">
+            <img src="images/castellammare.jpg">
             <span>
-                <h3>France</h3>
-                <p> $250</p>
+                <h3>CASTELLAMMARE</h3>
+                <p> €70</p>
             </span>
         </div>
         <div>
-            <img src="images/image-5.png">
+            <img src="images/roma.jpeg">
             <span>
-                <h3>Amsterdam</h3>
-                <p> $250</p>
+                <h3>ROMA</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-6.png">
+            <img src="images/portofino.jpg">
             <span>
-                <h3>Netherlands</h3>
-                <p> $250</p>
+                <h3>PORTOFINO</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-7.png">
+            <img src="images/positano.jpg">
             <span>
-                <h3>New York</h3>
-                <p>  $250</p>
+                <h3>POSITANO</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-8.png">
+            <img src="images/milano.jpg">
             <span>
-                <h3>Chicago</h3>
-                <p>  $250</p>
+                <h3>MILANO</h3>
+                <p> €250</p>
             </span>
         </div>
         <div>
-            <img src="images/image-9.png">
+            <img src="images/sardegna.jpg">
             <span>
-                <h3>San Francisco</h3>
-                <p>  $250</p>
-            </span>
-        </div>
-        <div>
-            <img src="images/image-10.png">
-            <span>
-                <h3>Shanghai</h3>
-                <p>  $250</p>
+                <h3>SARDEGNA</h3>
+                <p> €400</p>
             </span>
         </div>
     </div>
 
-    <h2 class="sub-title">Trending Places</h2>
+    <h2 class="sub-title">Luoghi di Tendenza</h2>
     <div class="trending">
         <div>
             <img src="images/dubai.png">
-            <h3>Dubai</h3>
+            <h3>POMPEI</h3>
         </div>
         <div>
             <img src="images/new-york.png">
-            <h3>New York</h3>
+            <h3>SORRENTO</h3>
         </div>
         <div>
             <img src="images/paris.png">
-            <h3>Paris</h3>
+            <h3>POSITANO</h3>
         </div>
         <div>
             <img src="images/new-delhi.png">
-            <h3>New Delhi</h3>
+            <h3>CAPRI</h3>
         </div>
     </div>
 
     <div class="cta">
-        <h3>Sharing <br> Is Earning Now</h3>
-        <p>Great opportunity to make money by <br> sharing your extra space</p>
-        <a href="#" class="cta-btn">Know More</a>
+        <h3>Condividere <br> è Guadagnare Ora</h3>
+        <p>Grande opportunità per guadagnare <br> condividendo i tuoi spazi extra</p>
+        <a href="https://wa.me/+393500313314/?text=Ciao%20ti%20contatto%20dal%20sito%20per%20maggiori%20informazioni" class="cta-btn" target="_blank">Scopri di più</a>
+
     </div>
 
-    <h2 class="sub-title">Travellers Stories</h2>
+    <h2 class="sub-title">Storie dei Viaggiatori</h2>
     <div class="stories">
         <div>
             <img src="images/story-1.png">
-            <p>Popular European countries with a budget of just $10,000</p>
+            <p>vacanza a Sorrento con un budget di soli €10.000 all inclusive</p>
         </div>
         <div>
             <img src="images/story-2.png">
-            <p>Traveled more than 100 Countries in less than a year</p>
+            <p>tour in Campania solo per te</p>
         </div>
         <div>
             <img src="images/story-3.png">
-            <p>Best experience you get while traveling to Thailand</p>
+            <p>i ristoranti migliori solo con noi</p>
         </div>
     </div>
-<a href="#" class="start-btn">Start making money</a>
+    <a href="https://wa.me/+393500313314/?text=Ciao%20ti%20contatto%20dal%20sito%20per%20iniziare%20a%20guadagnare" class="start-btn" target="_blank">Inizia a guadagnare con noi!</a>
+
 
 <div class="about-msg">
-    <h2>About Staybnb</h2>
-    <p>Contrary to popular belief,Lorem Ipsum is not simply random text. It has roots
-        in a piece of classical Latin literature from 45 BC, making it over 2000 years
-        old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia,
-        looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsumpassage, and going through the cites of the word in classical literature,
-        discovered the undoubtable source.</p>
-
+    <h2>NOI</h2>
+    <p>SIAMO DEI PROPERTY MANAGER, tutte le strutture che trovi sul nostro portale sono appartamenti per prenotazioni private che prevedono un prezzo minore rispetto ai portali! Che aspetti?!?</p>
 </div>
 
 <div class="footer">
     <a href="https://facebook.com"><i class="fa-brands fa-facebook" style="color: #246ef0;"></i></a>
     <a href="https://youtube.com"><i class="fa-brands fa-youtube" style="color: #ff0909;"></i></a>
     <a href="https://twitter.com"><i class="fa-brands fa-twitter" style="color: #4b81e0;"></i></a>
-    <a href="https://linkedin.com"><i class="fa-brands fa-linkedin-in" style="color: #264780;"></i></a>
-    <a href="https://instagram.com"><i class="fa-brands fa-instagram" style="color: #ca2222;"></i></a>
-    <hr>
-    <p>Copyright © 2023, All Rights Reserved.</p>
-</div>
-
-</div>
-
-<script>
-    var navBar = document.getElementById("navBar");
-    function togglebtn(){
-        navBar.classList.toggle("hidemenu");
-    }
-</script>
-
-</body>
-</html>
+    <a href="https://linkedin.com"><i class="fa-brands fa-linkedin-in" style="color: #264
